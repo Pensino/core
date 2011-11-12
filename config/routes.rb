@@ -1,4 +1,6 @@
 CorePensino::Application.routes.draw do
+  resources :courses
+
   resources :matters
 
   # The priority is based upon order of creation:
