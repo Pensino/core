@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  string: 
-  text: 
+  name: MyString
+  description: MyText
+  quantityLessons: 1
 
 two:
-  string: 
-  text: 
+  name: MyString
+  description: MyText
+  quantityLessons: 1

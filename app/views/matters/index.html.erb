@@ -2,9 +2,9 @@
 
 <table>
   <tr>
-    <th>String</th>
-    <th>Text</th>
-    <th>Integer</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Quantitylessons</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @matters.each do |matter| %>
   <tr>
-    <td><%= matter.string %></td>
-    <td><%= matter.text %></td>
-    <td><%= matter.integer %></td>
+    <td><%= matter.name %></td>
+    <td><%= matter.description %></td>
+    <td><%= matter.quantityLessons %></td>
     <td><%= link_to 'Show', matter %></td>
     <td><%= link_to 'Edit', edit_matter_path(matter) %></td>
     <td><%= link_to 'Destroy', matter, confirm: 'Are you sure?', method: :delete %></td>

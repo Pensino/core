@@ -2,8 +2,9 @@
 
 <table>
   <tr>
-    <th>String</th>
-    <th>Text</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Quantitylessons</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +12,9 @@
 
 <% @courses.each do |course| %>
   <tr>
-    <td><%= course.string %></td>
-    <td><%= course.text %></td>
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.quantityLessons %></td>
     <td><%= link_to 'Show', course %></td>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>
     <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
