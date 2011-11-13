@@ -1,4 +1,6 @@
 CorePensino::Application.routes.draw do
+  resources :grids
+
   resources :matters
 
   resources :courses
