@@ -1,4 +1,4 @@
-Core::Application.routes.draw do
+CorePensino::Application.routes.draw do
   resources :grids
 
   resources :matters
