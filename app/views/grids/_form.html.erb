@@ -1,24 +1,33 @@
 <%= form_for(@grid) do |f| %>
-  <% if @grid.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@grid.errors.count, "error") %> prohibited this grid from being saved:</h2>
-
-      <ul>
-      <% @grid.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<%= error_messages_for(@grid)%>
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :course_id, :course %>
+		<% if @courses.present? %>
+			<%= collection_select(:grid, :course_id, @courses, :id, :name, :prompt => true) %>
+		<% else %>
+			<%= link_to t("course_not_present"), :controller => "courses", :action => "new" %>
+		<% end %>
+  </div>
+
+	<div class="field">
+		<%= f.label :matters %><br />
+		<ul class="matters-field">
+      <%- @matters.each do |c| -%>
+        <li><%= check_box_tag "grid[matter_ids][]", c.id, @grid.matters.include?(c) %> <%= c.name %></li>
+      <%- end -%>
+    </ul>
+	</div>
+	<hr />
+  <div class="field">
     <%= f.label :draft %><br />
     <%= f.check_box :draft %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
