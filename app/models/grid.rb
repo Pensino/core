@@ -3,5 +3,6 @@ class Grid < ActiveRecord::Base
   has_and_belongs_to_many   :matters
 
   validates_presence_of :course, :name, :matters
+  validates_uniqueness_of :name
 
 end
