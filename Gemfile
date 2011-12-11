@@ -42,7 +42,3 @@ group :test do
   gem 'turn', :require => false
 	gem 'minitest', '2.8.0'
 end
-
-group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
-end
