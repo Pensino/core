@@ -42,3 +42,8 @@ group :test do
   gem 'turn', :require => false
 	gem 'minitest', '2.8.0'
 end
+
+group :production do
+	# Heroku dependencies
+	gem 'pg'
+end
