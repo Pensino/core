@@ -12,9 +12,6 @@ gem "sys-uname"
 gem "execjs"
 gem "therubyracer"
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -41,4 +38,14 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 	gem 'minitest', '2.8.0'
+end
+
+group :test, :development do
+	# Database for local development and tests
+	gem 'sqlite3'
+end
+
+group :production do
+	# Database for production (on heroku)
+	gem 'pg'
 end
