@@ -43,6 +43,9 @@ end
 group :test, :development do
 	# Database for local development and tests
 	gem 'sqlite3'
+	gem 'factory_girl_rails'
+	gem 'rspec'
+	gem 'rspec-rails'
 end
 
 group :production do
