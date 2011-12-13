@@ -24,7 +24,7 @@ describe ClassroomsController do
   # Classroom. As you add validations to Classroom, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "TestName"}
   end
 
   describe "GET index" do
