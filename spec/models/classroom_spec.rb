@@ -7,7 +7,6 @@ describe Classroom do
     it "name must be unique" do
       Factory.create(:classroom)
       room = Classroom.new(:name => "Sala de Aula")
-      room.save
       room.should have(1).error_on(:name)
     end
     

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213095538) do
+ActiveRecord::Schema.define(:version => 20111213115812) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20111213095538) do
     t.string   "name"
     t.text     "description"
     t.integer  "quantityLessons"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expedients", :force => true do |t|
+    t.string   "day_of_week"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "quantity_lessons"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

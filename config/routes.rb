@@ -1,4 +1,6 @@
 Core::Application.routes.draw do
+  resources :expedients
+
   resources :classrooms
 
   resources :grids
