@@ -1,27 +1,17 @@
 <%= form_for(@expedient) do |f| %>
-  <% if @expedient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@expedient.errors.count, "error") %> prohibited this expedient from being saved:</h2>
-
-      <ul>
-      <% @expedient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= error_messages_for @expedient %>
 
   <div class="field">
     <%= f.label :day_of_week %><br />
-    <%= f.text_field :day_of_week %>
+    <%= select "expedient", "day_of_week", days_of_week, {:prompt => "all"} %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
   </div>
   <div class="field">
     <%= f.label :end_time %><br />
-    <%= f.datetime_select :end_time %>
+    <%= f.datetime_select :end_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
   </div>
   <div class="field">
     <%= f.label :quantity_lessons %><br />

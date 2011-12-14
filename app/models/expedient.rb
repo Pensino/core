@@ -1,5 +1,6 @@
 class Expedient < ActiveRecord::Base
   
+  validate :start_time_must_be_minor_than_end_time, :if => Proc.new {|exp| exp.start_time.present? and exp.end_time.present?}
   validates_presence_of :start_time, :end_time, :quantity_lessons
   validates_uniqueness_of :day_of_week, :scope => [:start_time], :message => I18n.t("expedient_already_taken", :time => "start")
   validates_uniqueness_of :day_of_week, :scope => [:end_time], :message => I18n.t("expedient_already_taken", :time => "end")
@@ -10,7 +11,7 @@ class Expedient < ActiveRecord::Base
     end_date   = options[:end]
     return false if start_date == nil or end_date == nil
     return false unless start_date.class == DateTime and end_date.class == DateTime
-    return false unless start_date.send day_of_week + "?" and end_date.send day_of_week + "?"
+    return false unless not(day_of_week.present?) or (start_date.send day_of_week + "?" and end_date.send day_of_week + "?")
 
     #equalizing the dates(d m y) to can use the ruby compare of dates
     start_date = start_date.change  :day   => start_time.day,
@@ -29,4 +30,9 @@ class Expedient < ActiveRecord::Base
     
     return start_date >= start_time && end_date <= end_time
   end
+  
+private
+    def start_time_must_be_minor_than_end_time
+        errors.add :start_time, "must be minor than end time" unless start_time < end_time
+    end
 end

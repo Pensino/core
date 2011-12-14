@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "expedients/edit.html.erb" do
   before(:each) do
     @expedient = assign(:expedient, stub_model(Expedient,
-      :day_of_week => "MyString",
+      :day_of_week => "monday",
       :quantity_lessons => 1
     ))
   end
@@ -13,7 +13,7 @@ describe "expedients/edit.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => expedients_path(@expedient), :method => "post" do
-      assert_select "input#expedient_day_of_week", :name => "expedient[day_of_week]"
+      assert_select "select#expedient_day_of_week", :name => "expedient[day_of_week]"
       assert_select "input#expedient_quantity_lessons", :name => "expedient[quantity_lessons]"
     end
   end
