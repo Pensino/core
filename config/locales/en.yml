@@ -5,4 +5,5 @@ en:
   hello:                            "Hello world"
   error_message_header:             "%{count} error(s) prohibited this %{model} from being saved:"
   course_not_present:               "You need to create a course before creating a grid"
-  expedient_already_taken:    "You have an expedient registered with this day of week and %{time} time"
+  expedient_already_taken:          "You have an expedient registered with this day of week and %{time} time"
+  select_day_of_week:               "Select a day of week"

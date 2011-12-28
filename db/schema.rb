@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213115812) do
+ActiveRecord::Schema.define(:version => 20111218101211) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
@@ -56,5 +56,39 @@ ActiveRecord::Schema.define(:version => 20111213115812) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "timetables_id"
+    t.integer  "matters_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "day_of_week"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "time_gap_id"
+  end
+
+  add_index "schedules", ["matters_id"], :name => "index_schedules_on_matters_id"
+  add_index "schedules", ["timetables_id"], :name => "index_schedules_on_timetables_id"
+
+  create_table "time_gaps", :force => true do |t|
+    t.string   "day_of_week"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "quantity_lessons"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "expedient_id"
+  end
+
+  create_table "timetables", :force => true do |t|
+    t.integer  "grid_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timetables", ["grid_id"], :name => "index_timetables_on_grid_id"
 
 end

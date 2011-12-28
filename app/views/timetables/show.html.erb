@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Grids:</b>
+  <%= @timetable.grids %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @timetable.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @timetable.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
+<%= link_to 'Back', timetables_path %>

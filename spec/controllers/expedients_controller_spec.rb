@@ -24,7 +24,7 @@ describe ExpedientsController do
   # Expedient. As you add validations to Expedient, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:start_time => DateTime.now, :end_time => DateTime.now+1.hour, :quantity_lessons => 3}
+    {:start_time => Time.zone.now, :end_time => Time.zone.now+1.hour, :quantity_lessons => 3}
   end
 
   describe "GET index" do

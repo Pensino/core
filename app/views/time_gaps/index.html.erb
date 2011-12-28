@@ -1,0 +1,29 @@
+<h1>Listing time_gaps</h1>
+
+<table>
+  <tr>
+    <th>Day of week</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Quantity lessons</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @time_gaps.each do |time_gap| %>
+  <tr>
+    <td><%= time_gap.day_of_week %></td>
+    <td><%= time_gap.start_time %></td>
+    <td><%= time_gap.end_time %></td>
+    <td><%= time_gap.quantity_lessons %></td>
+    <td><%= link_to 'Show', time_gap %></td>
+    <td><%= link_to 'Edit', edit_time_gap_path(time_gap) %></td>
+    <td><%= link_to 'Destroy', time_gap, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Time gap', new_time_gap_path %>

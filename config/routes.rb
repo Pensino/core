@@ -1,4 +1,8 @@
 Core::Application.routes.draw do
+  resources :time_gaps
+
+  resources :timetables
+
   resources :expedients
 
   resources :classrooms

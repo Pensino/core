@@ -1,4 +1,5 @@
 class Expedient < ActiveRecord::Base
+  has_many :time_gaps
   
   validate :start_time_must_be_minor_than_end_time, :if => Proc.new {|exp| exp.start_time.present? and exp.end_time.present?}
   validates_presence_of :start_time, :end_time, :quantity_lessons
@@ -10,7 +11,7 @@ class Expedient < ActiveRecord::Base
     start_date = options[:start]
     end_date   = options[:end]
     return false if start_date == nil or end_date == nil
-    return false unless start_date.class == DateTime and end_date.class == DateTime
+    return false unless start_date.is_a?(Time) and end_date.is_a?(Time)
     return false unless not(day_of_week.present?) or (start_date.send day_of_week + "?" and end_date.send day_of_week + "?")
 
     #equalizing the dates(d m y) to can use the ruby compare of dates
