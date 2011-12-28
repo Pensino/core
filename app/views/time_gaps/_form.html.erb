@@ -7,15 +7,23 @@
   </div>
   <div class="field">
     <%= f.label :start_time %><br />
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
   </div>
   <div class="field">
     <%= f.label :end_time %><br />
-    <%= f.datetime_select :end_time %>
+    <%= f.datetime_select :end_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
   </div>
   <div class="field">
     <%= f.label :quantity_lessons %><br />
     <%= f.number_field :quantity_lessons %>
+  </div>
+  <div class="field">
+    <%= f.label :expedient %>
+		<% if @expedients.present? %>
+			<%= collection_select(:time_gap, :expedient_id, @expedients, :id, :name, :prompt => true) %>
+		<% else %>
+			<%= link_to t("expedient_not_present"), :controller => "expedients", :action => "new" %>
+		<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

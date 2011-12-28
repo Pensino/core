@@ -9,13 +9,14 @@ describe TimeGap do
   let(:friday_expedient){ Factory.build(:friday_expedient) }
   
   context "Validations" do
-    it "must have day_of_week, start_time, end_time and quantity_lessons" do
+    it "must have day_of_week, start_time, end_time, quantity_lessons and expedient" do
       tg = TimeGap.new()
       tg.should_not be_valid
       tg.errors_on(:day_of_week).should ==  ["doesn't exist"]
       tg.errors_on(:start_time).should ==  ["can't be blank"]
       tg.errors_on(:end_time).should ==  ["can't be blank"]
       tg.errors_on(:quantity_lessons).should ==  ["can't be blank"]
+      tg.errors_on(:expedient).should ==  ["can't be blank"]
     end
     
     it "must have a valid day_of_week" do

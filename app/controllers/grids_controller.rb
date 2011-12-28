@@ -86,7 +86,6 @@ class GridsController < ApplicationController
 
 protected
   def load_resources
-    puts "PASSEI POR AQUI !!!!!! HAHAHHAHA"
     @matters = Matter.all
     @courses = Course.all
   end

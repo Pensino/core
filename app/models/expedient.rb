@@ -32,6 +32,10 @@ class Expedient < ActiveRecord::Base
     return start_date >= start_time && end_date <= end_time
   end
   
+  def name
+    date_format = "%H:%M"
+    "#{day_of_week} - #{start_time.strftime(date_format)} to #{end_time.strftime(date_format)}"
+  end
 private
     def start_time_must_be_minor_than_end_time
         errors.add :start_time, "must be minor than end time" unless start_time < end_time
