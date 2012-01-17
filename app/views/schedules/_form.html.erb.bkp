@@ -1,0 +1,48 @@
+	<h3>Prepare your timetable</h3>
+
+	<table>
+	  <tr>
+			<th></th>
+	    <th>Name</th>
+	    <th>Quantitylessons</th>
+			<th><%= :monday %></th>
+			<th><%= :tuesday %></th>
+			<th><%= :wednesday %></th>
+			<th><%= :thursday %></th>
+			<th><%= :friday %></th>
+			<th><%= :saturday %></th>
+			<th><%= :sunday %></th>
+	  </tr>
+
+	<% contains_matter = false %>
+	<% matters.each do |matter| %>
+	  <tr>
+			<% unless timetable.blank?
+				 	matter.timetables.each do |tt|
+				 		if tt.matters.include?matter and tt.equal?timetable
+				 	 		contains_matter = true
+				 	 		break
+				 	 	else
+				 	 		contains_matter = false
+				 	 	end
+				 	end
+				 end %>
+			<td><%= check_box_tag :matter_ids, matter.id, contains_matter, :name => 'timetable[matter_ids][]' %></td>
+	    <td><%= matter.name %></td>
+	    <td><%= matter.quantityLessons %></td>
+			<% time_gaps.each do |day_time_gap|%>
+			<td>
+				<div class="field">
+					<ul class="time_gaps-field">
+			    	<% day_time_gap.each do |tg|%>
+							<li><%= check_box_tag :time_gap_ids, tg.id, (timetable.time_gaps.include?tg), :name => 'timetable[time_gap_ids][]'%>
+									<%= label :time_gap_ids,  tg.to_s%>
+							</li>
+						<% end %>  
+			    </ul>
+				</div>
+			</td>
+			<% end %>
+  	</tr>
+	<% end %>
+	</table>

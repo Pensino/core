@@ -1,4 +1,6 @@
 class TimetablesController < ApplicationController
+  before_filter :load_resources, :except => %w(destroy index)
+  
   # GET /timetables
   # GET /timetables.json
   def index
@@ -65,7 +67,7 @@ class TimetablesController < ApplicationController
       else
         format.html { render action: "edit" }
         format.json { render json: @timetable.errors, status: :unprocessable_entity }
-      end
+      end  
     end
   end
 
@@ -79,5 +81,11 @@ class TimetablesController < ApplicationController
       format.html { redirect_to timetables_url }
       format.json { head :ok }
     end
+  end
+protected
+  def load_resources
+    @grids = Grid.where(:draft => false)
+    @grids.sort!{|x, y| x.name_with_course <=> y.name_with_course} #sorting by course name
+    @time_gaps = TimeGap.all.sort!{|x,y| x.day_of_week <=> y.day_of_week}
   end
 end

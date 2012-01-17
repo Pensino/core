@@ -1,7 +1,9 @@
 Core::Application.routes.draw do
   resources :time_gaps
 
-  resources :timetables
+  resources :timetables do
+    resources :schedules
+  end
 
   resources :expedients
 
@@ -12,6 +14,8 @@ Core::Application.routes.draw do
   resources :matters
 
   resources :courses
+  
+  match 'get_matters/:id' => 'grids#get_matters'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,7 +10,7 @@
 		<% if @courses.present? %>
 			<%= collection_select(:grid, :course_id, @courses, :id, :name, :prompt => true) %>
 		<% else %>
-			<%= link_to t("course_not_present"), :controller => "courses", :action => "new" %>
+			<%= link_to t("not_present", :depending_resourse => "course", :creating_resourse => "grid"), :controller => "courses", :action => "new" %>
 		<% end %>
   </div>
 

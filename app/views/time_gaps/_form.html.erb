@@ -22,7 +22,7 @@
 		<% if @expedients.present? %>
 			<%= collection_select(:time_gap, :expedient_id, @expedients, :id, :name, :prompt => true) %>
 		<% else %>
-			<%= link_to t("expedient_not_present"), :controller => "expedients", :action => "new" %>
+			<%= link_to t("not_present", :depending_resourse => "expedient", :creating_resourse => "time gap"), :controller => "expedients", :action => "new" %>
 		<% end %>
   </div>
   <div class="actions">

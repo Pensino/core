@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :timetable do
-    grids nil
-    name "MyString"
-    description "MyString"
+    name "timetable"
+    description "this timetable"
   end
 end

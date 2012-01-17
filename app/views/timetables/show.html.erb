@@ -2,7 +2,7 @@
 
 <p>
   <b>Grids:</b>
-  <%= @timetable.grids %>
+  <%= @timetable.grid.name_with_course %>
 </p>
 
 <p>
@@ -14,6 +14,14 @@
   <b>Description:</b>
   <%= @timetable.description %>
 </p>
+
+<h2>Schedules</h2>
+<%= render @timetable.schedules %>
+
+<hr />
+
+<h2>Add a Schedule:</h2>
+<%= render "schedules/form" %>
 
 
 <%= link_to 'Edit', edit_timetable_path(@timetable) %> |

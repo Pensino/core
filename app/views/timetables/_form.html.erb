@@ -1,21 +1,7 @@
 <%= form_for(@timetable) do |f| %>
-  <% if @timetable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@timetable.errors.count, "error") %> prohibited this timetable from being saved:</h2>
+  <%= error_messages_for(@timetable) %>
 
-      <ul>
-      <% @timetable.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :grids %><br />
-    <%= f.text_field :grids %>
-  </div>
-  <div class="field">
+	<div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -23,6 +9,15 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+	<div class="field">
+		<% unless @grids.blank? %>
+    	<%= f.label :grid %>
+			<%= f.collection_select(:grid_id, @grids, :id, :name_with_course) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "grid", :creating_resourse => "timetable"), :controller => "grids", :action => "new" %>
+		<% end %>
+  </div>
+	
   <div class="actions">
     <%= f.submit %>
   </div>

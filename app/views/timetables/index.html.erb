@@ -12,7 +12,7 @@
 
 <% @timetables.each do |timetable| %>
   <tr>
-    <td><%= timetable.grids %></td>
+    <td><%= timetable.grid.name_with_course %></td>
     <td><%= timetable.name %></td>
     <td><%= timetable.description %></td>
     <td><%= link_to 'Show', timetable %></td>

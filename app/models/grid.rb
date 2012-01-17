@@ -4,5 +4,9 @@ class Grid < ActiveRecord::Base
 
   validates_presence_of :course, :name, :matters
   validates_uniqueness_of :name
+  
+  def name_with_course
+    "#{course.name}, #{name}"
+  end
 
 end
