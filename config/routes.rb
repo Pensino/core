@@ -1,4 +1,9 @@
 Core::Application.routes.draw do
+
+  resources :coordinators, :controller => "people", :type => "Coordinator"
+  resources :professors,   :controller => "people", :type => "Professor"
+  resources :students,     :controller => "people", :type => "Student"
+
   resources :time_gaps
 
   resources :timetables do
@@ -15,7 +20,7 @@ Core::Application.routes.draw do
 
   resources :courses
   
-  match 'get_matters/:id' => 'grids#get_matters'
+  resources :enrollments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

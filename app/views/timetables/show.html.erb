@@ -2,7 +2,7 @@
 
 <p>
   <b>Grids:</b>
-  <%= @timetable.grid.name_with_course %>
+  <%= @timetable.grid.name_with_course if @timetable.grid%>
 </p>
 
 <p>

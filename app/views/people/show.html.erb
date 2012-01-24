@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @person.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @person.type %>
+</p>
+
+
+<%= link_to 'Edit', [:edit, @person] %> |
+<%= link_to 'Back', params[:type].pluralize.downcase.to_sym %>

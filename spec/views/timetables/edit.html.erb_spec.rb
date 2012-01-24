@@ -14,7 +14,6 @@ describe "timetables/edit.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => timetables_path(@timetable), :method => "post" do
-      assert_select "input#timetable_grids", :name => "timetable[grids]"
       assert_select "input#timetable_name", :name => "timetable[name]"
       assert_select "input#timetable_description", :name => "timetable[description]"
     end

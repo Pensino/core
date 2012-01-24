@@ -1,11 +1,19 @@
 <%= form_for([@timetable, @timetable.schedules.build]) do |f| %>
   <div class="field">
     <%= f.label :matter %><br />
-    <%= f.collection_select(:matter_id, @timetable.grid.matters.sort!{|m1,m2|m1.name <=> m2.name}, :id, :name) %>
+		<% if @timetable.grid %>
+    	<%= f.collection_select(:matter_id, @timetable.grid.matters.sort!{|m1,m2|m1.name <=> m2.name}, :id, :name) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "grid", :creating_resourse => "schedule"), :controller => "grids", :action => "new" %>
+		<% end %>
   </div>
   <div class="field">
     <%= f.label :time_gap %><br />
-    <%= f.collection_select(:time_gap_id, @time_gaps, :id, :to_s) %>
+		<% if @time_gaps %>
+    	<%= f.collection_select(:time_gap_id, @time_gaps, :id, :to_s) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "time_gap", :creating_resourse => "schedule"), :controller => "time_gaps", :action => "new" %>
+		<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

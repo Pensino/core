@@ -19,12 +19,16 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe TimetablesController do
+  let(:grid){ Factory.create(:grid_complete) }
 
   # This should return the minimal set of attributes required to create a valid
   # Timetable. As you add validations to Timetable, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :grid_id => grid.id,
+      :name    => "timetable"
+    }
   end
 
   describe "GET index" do

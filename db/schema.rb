@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109235919) do
+ActiveRecord::Schema.define(:version => 20120122142106) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20120109235919) do
     t.string   "name"
     t.text     "description"
     t.integer  "quantityLessons"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enrollments", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "matter_id"
+    t.integer  "timetable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120109235919) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
+    t.integer  "coordinator_id"
   end
 
   create_table "grids_matters", :force => true do |t|
@@ -57,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20120109235919) do
     t.datetime "updated_at"
   end
 
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schedules", :force => true do |t|
     t.integer  "timetable_id"
     t.integer  "matter_id"
@@ -66,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120109235919) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "time_gap_id"
+    t.integer  "professor_id"
   end
 
   add_index "schedules", ["matter_id"], :name => "index_schedules_on_matter_id"

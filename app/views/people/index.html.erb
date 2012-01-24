@@ -1,0 +1,25 @@
+<h1>Listing <%= params[:type].pluralize %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.type %></td>
+    <td><%= link_to 'Show', person.class %></td>
+    <td><%= link_to 'Edit', [:edit, person] %></td>
+    <td><%= link_to 'Destroy', person, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ' + params[:type], [:new, params[:type].downcase] %>
