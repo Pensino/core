@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Grids:</b>
+  <%= @timetable.grid.name_with_course if @timetable.grid%>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @timetable.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @timetable.description %>
+</p>
+
+<h2>Schedules</h2>
+<%= render @timetable.schedules %>
+
+<hr />
+
+<h2>Add a Schedule:</h2>
+<%= render "schedules/form" %>
+
+
+<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
+<%= link_to 'Back', timetables_path %>

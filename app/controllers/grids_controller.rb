@@ -1,4 +1,6 @@
 class GridsController < ApplicationController
+  before_filter :load_resources, :only => %w(new create edit update)
+  
   # GET /grids
   # GET /grids.json
   def index
@@ -41,7 +43,8 @@ class GridsController < ApplicationController
   # POST /grids.json
   def create
     @grid = Grid.new(params[:grid])
-
+    @matters = Matter.all
+    
     respond_to do |format|
       if @grid.save
         format.html { redirect_to @grid, notice: 'Grid was successfully created.' }
@@ -80,4 +83,11 @@ class GridsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+protected
+  def load_resources
+    @matters = Matter.all
+    @courses = Course.all
+  end
+  
 end

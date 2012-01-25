@@ -1,0 +1,31 @@
+<%= form_for(@time_gap) do |f| %>
+  <%= error_messages_for(@time_gap)%>
+
+  <div class="field">
+    <%= f.label :day_of_week %><br />
+    <%= select "time_gap", "day_of_week", days_of_week, {:prompt => t("select_day_of_week")} %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_lessons %><br />
+    <%= f.number_field :quantity_lessons %>
+  </div>
+  <div class="field">
+    <%= f.label :expedient %>
+		<% if @expedients.present? %>
+			<%= collection_select(:time_gap, :expedient_id, @expedients, :id, :name, :prompt => true) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "expedient", :creating_resourse => "time gap"), :controller => "expedients", :action => "new" %>
+		<% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

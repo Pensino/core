@@ -1,0 +1,23 @@
+<%= form_for(@expedient) do |f| %>
+  <%= error_messages_for @expedient %>
+
+  <div class="field">
+    <%= f.label :day_of_week %><br />
+    <%= select "expedient", "day_of_week", days_of_week, {:prompt => "all"} %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time, :discard_year => true, :discard_month => true, :discard_day => true, :prompt => {:hour => t(:hour), :minute => t(:minute)} %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_lessons %><br />
+    <%= f.number_field :quantity_lessons %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

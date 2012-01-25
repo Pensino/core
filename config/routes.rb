@@ -1,9 +1,26 @@
 Core::Application.routes.draw do
+
+  resources :coordinators, :controller => "people", :type => "Coordinator"
+  resources :professors,   :controller => "people", :type => "Professor"
+  resources :students,     :controller => "people", :type => "Student"
+
+  resources :time_gaps
+
+  resources :timetables do
+    resources :schedules
+  end
+
+  resources :expedients
+
+  resources :classrooms
+
   resources :grids
 
   resources :matters
 
   resources :courses
+  
+  resources :enrollments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

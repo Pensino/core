@@ -2,4 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  hello:                            "Hello world"
+  error_message_header:             "%{count} error(s) prohibited this %{model} from being saved:"
+  not_present:                      "You need to create a %{depending_resourse} before creating a %{creating_resourse}"
+  expedient_already_taken:          "You have an expedient registered with this day of week and %{time} time"
+  select_day_of_week:               "Select a day of week"

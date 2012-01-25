@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day of week:</b>
+  <%= @time_gap.day_of_week %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @time_gap.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @time_gap.end_time %>
+</p>
+
+<p>
+  <b>Quantity lessons:</b>
+  <%= @time_gap.quantity_lessons %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_gap_path(@time_gap) %> |
+<%= link_to 'Back', time_gaps_path %>

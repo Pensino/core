@@ -12,9 +12,6 @@ gem "sys-uname"
 gem "execjs"
 gem "therubyracer"
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -37,7 +34,21 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
+group :test, :development do
+	# Database for local development and tests
+	gem 'sqlite3'
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+	gem 'rspec'
+	gem "rspec-core"
+	gem "rspec-expectations"
+	gem "rspec-mocks"
+	gem 'turn', :require => false
+	gem 'minitest', '2.8.0'
+	gem 'capybara'
+end
+
+group :production do
+	# Database for production (on heroku)
+	gem 'pg'
 end

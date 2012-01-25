@@ -1,0 +1,6 @@
+<h1>Editing <%= params[:type].pluralize %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @person %> |
+<%= link_to 'Back', params[:type].pluralize.downcase.to_sym %>

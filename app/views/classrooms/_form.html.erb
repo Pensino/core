@@ -1,0 +1,11 @@
+<%= form_for(@classroom) do |f| %>
+  <%= error_messages_for @classroom %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
