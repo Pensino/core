@@ -18,14 +18,18 @@
 	<div class="field">
 		<%= f.label :matters %><br />
 		<ul class="matters-field">
-      <%- @matters.each do |c| -%>
-        <li><%= check_box_tag "grid[matter_ids][]", c.id, @grid.matters.include?(c) %> <%= c.name %> | <%= c.quantityLessons %> </li>
-      <%- end -%>
+			<% if @matters.present? %>
+      	<%- @matters.each do |c| -%>
+	        <li><%= check_box_tag "grid[matter_ids][]", c.id, @grid.matters.include?(c) %> <%= c.name %> | <%= c.quantityLessons %> </li>
+	      <%- end -%>
+			<% else %>
+					<li><%= link_to t("not_present", :depending_resourse => "matter", :creating_resourse => "grid"), [:new, :matter] %> </li>
+			<% end %>
     </ul>
 	</div>
 	
 	<div class="field">
-    <%= f.label :coordinator_id, :coordinator %>
+    <%= f.label :coordinator, :coordinator %>
 		<% if @coordinators.present? %>
 			<%= collection_select(:grid, :coordinator_id, @coordinators, :id, :name, :prompt => true) %>
 		<% else %>
