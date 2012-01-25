@@ -19,8 +19,6 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe TimeGapsController do
-  let(:wednesday_expedient){ Factory.create(:wednesday_expedient) }
-  let(:friday_expedient){ Factory.build(:friday_expedient) }
 
   # This should return the minimal set of attributes required to create a valid
   # TimeGap. As you add validations to TimeGap, be sure to
@@ -30,8 +28,7 @@ describe TimeGapsController do
       :day_of_week       => "friday",
       :start_time        => Time.zone.local(2011, 12, 16,  9, 00, 00),
       :end_time          => Time.zone.local(2011, 12, 16, 10, 00, 00),
-      :quantity_lessons  => 1,
-      :expedient         => friday_expedient
+      :quantity_lessons  => 1
     }
   end
   
@@ -40,8 +37,7 @@ describe TimeGapsController do
       "day_of_week"       =>  "wednesday",
       "start_time"        =>  "2011-12-16 08:00:00 UTC",
       "end_time"          =>  "2011-12-16 09:00:00 UTC",
-      "quantity_lessons"  =>  "1",
-      "expedient_id"      =>  wednesday_expedient.id
+      "quantity_lessons"  =>  "1"
     }
   end
 

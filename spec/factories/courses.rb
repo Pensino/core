@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :course do
     name            'Ensino Basico'
     description     'Descricao'
-    quantityLessons '1000'
+    quantityLessons '2'
   end
 end

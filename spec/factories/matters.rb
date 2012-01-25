@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :matter do
     name            { Factory.next(:name) }
     description     'Descricao'
-    quantityLessons '100'
+    quantityLessons '1'
   end
   
   Factory.define :matters_with_grids, :parent => :matter do |matter|

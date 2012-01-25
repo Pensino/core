@@ -20,6 +20,7 @@ require 'spec_helper'
 
 describe TimetablesController do
   let(:grid){ Factory.create(:grid_complete) }
+  let(:coordinator){ Factory.create(:coordinator) }
 
   # This should return the minimal set of attributes required to create a valid
   # Timetable. As you add validations to Timetable, be sure to
