@@ -8,8 +8,10 @@
 </head>
 <body>
 
-
-<%= link_to 'Courses', courses_path %> | <%= link_to 'Matters', matters_path %> | <%= link_to 'Grids', grids_path %> | <%= link_to 'Classrooms', classrooms_path %> | <%= link_to 'TimeTables', timetables_path %> | <%= link_to 'TimeGaps', time_gaps_path %> | <%= link_to 'Coordinators', coordinators_path %> | <%= link_to 'Professors', professors_path %> | <%= link_to 'Students', students_path %>
+Generate a School <%= link_to 'Schools', schools_path %> | <%= link_to 'Classrooms', classrooms_path %> <br />
+Generate a People <%= link_to 'Coordinators', coordinators_path %> | <%= link_to 'Professors', professors_path %> | <%= link_to 'Students', students_path %> <br />
+Generate a Course <%= link_to 'Courses', courses_path %> | <%= link_to 'Matters', matters_path %> | <%= link_to 'Grids', grids_path %>  <br />
+Planning a Course <%= link_to 'TimeGaps', time_gaps_path %> | <%= link_to 'TimeTables', timetables_path %> <br /> <br /> <br />
 <br />
 
 <%= yield %>

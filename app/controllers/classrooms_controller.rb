@@ -1,4 +1,6 @@
 class ClassroomsController < ApplicationController
+  before_filter :load_resources, :only => %w(new create edit update)
+  
   # GET /classrooms
   # GET /classrooms.json
   def index
@@ -79,5 +81,10 @@ class ClassroomsController < ApplicationController
       format.html { redirect_to classrooms_url }
       format.json { head :ok }
     end
+  end
+  
+protected
+  def load_resources
+    @schools      = School.all
   end
 end
