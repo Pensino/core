@@ -1,10 +1,21 @@
 <%= form_for(@classroom) do |f| %>
   <%= error_messages_for @classroom %>
-
+  
+  <div class="field">
+    <%= f.label :school_id, :school %>
+		<% if @schools.present? %>
+			<%= collection_select(:classroom, :school_id, @schools, :id, :name, :prompt => true) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "school", :creating_resourse => "classroom"), :controller => "schools", :action => "new" %>
+		<% end %>
+  </div>
+  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
+  
   <div class="actions">
     <%= f.submit %>
   </div>

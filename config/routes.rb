@@ -1,5 +1,7 @@
 Core::Application.routes.draw do
 
+  resources :schools
+
   resources :coordinators, :controller => "people", :type => "Coordinator"
   resources :professors,   :controller => "people", :type => "Professor"
   resources :students,     :controller => "people", :type => "Student"
