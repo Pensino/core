@@ -11,6 +11,7 @@ private
   def validate_date_range
 
     unless day_of_week.present? and WEEK_DAYS.include?(day_of_week.to_sym)
+    
       errors.add(:day_of_week, "doesn't exist") 
       return false
     end
