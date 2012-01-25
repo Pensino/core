@@ -7,10 +7,10 @@
 			<%= link_to t("not_present", :depending_resourse => "grid", :creating_resourse => "schedule"), :controller => "grids", :action => "new" %>
 		<% end %>
   </div>
-
+  
   <div class="field">
     <%= f.label :time_gap %><br />
-		<% if @time_gaps %>
+		<% if @time_gaps.present? %>
     	<%= f.collection_select(:time_gap_id, @time_gaps, :id, :to_s) %>
 		<% else %>
 			<%= link_to t("not_present", :depending_resourse => "time_gap", :creating_resourse => "schedule"), :controller => "time_gaps", :action => "new" %>
