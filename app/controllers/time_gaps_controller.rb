@@ -1,6 +1,5 @@
 class TimeGapsController < ApplicationController
-  before_filter :load_resources, :only => %w(new create edit update)
-  
+
   # GET /time_gaps
   # GET /time_gaps.json
   def index
@@ -81,10 +80,5 @@ class TimeGapsController < ApplicationController
       format.html { redirect_to time_gaps_url }
       format.json { head :ok }
     end
-  end
-
-protected  
-  def load_resources
-    @expedients = Expedient.all
   end
 end

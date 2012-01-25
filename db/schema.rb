@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(:version => 20120122142106) do
     t.datetime "updated_at"
   end
 
-  create_table "expedients", :force => true do |t|
-    t.string   "day_of_week"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer  "quantity_lessons"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "grids", :force => true do |t|
     t.string   "name"
     t.boolean  "draft"
