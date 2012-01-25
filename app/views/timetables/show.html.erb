@@ -16,7 +16,7 @@
 </p>
 
 <h2>Schedules</h2>
-<%= render @timetable.schedules %>
+<%= render @timetable.schedules.sort!{|x,y| x.matter.name <=> y.matter.name} %>
 
 <hr />
 

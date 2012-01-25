@@ -5,7 +5,9 @@
 
 <p>
   <b>Time Gap:</b>
-  <%= schedule.time_gap.to_s %>
+	<% schedule.time_gaps.each do |tg| %>
+  	<%= tg.to_s %>
+	<% end %>
 </p>
 
 <p>

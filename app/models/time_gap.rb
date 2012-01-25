@@ -1,5 +1,5 @@
 class TimeGap < ActiveRecord::Base
-
+  has_and_belongs_to_many :schedules
   has_many :timetables, :through => :schedules
   
   WEEK_DAYS = {:sunday => 0, :monday => 1, :tuesday => 2, :wednesday => 3, :thursday => 4, :friday => 5, :saturday => 6}

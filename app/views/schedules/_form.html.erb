@@ -9,13 +9,17 @@
   </div>
   
   <div class="field">
-    <%= f.label :time_gap %><br />
-		<% if @time_gaps.present? %>
-    	<%= f.collection_select(:time_gap_id, @time_gaps, :id, :to_s) %>
-		<% else %>
-			<%= link_to t("not_present", :depending_resourse => "time_gap", :creating_resourse => "schedule"), :controller => "time_gaps", :action => "new" %>
-		<% end %>
-  </div>
+		<%= f.label :time_gaps %><br />
+		<ul class="time_gaps-field">
+			<% if @time_gaps.present? %>
+      	<%- @time_gaps.each do |tg| -%>
+	        <li><%= check_box_tag "schedule[time_gap_ids][]", tg.id, false %> <%= tg.to_s %> | <%= tg.quantity_lessons %> </li>
+	      <%- end -%>
+			<% else %>
+					<li><%= link_to t("not_present", :depending_resourse => "matter", :creating_resourse => "grid"), [:new, :matter] %> </li>
+			<% end %>
+    </ul>
+	</div>
 
 	<div class="field">
     <%= f.label :professor_id, :professor %><br />
