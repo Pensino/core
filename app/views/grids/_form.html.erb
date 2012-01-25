@@ -9,7 +9,17 @@
 			<%= link_to t("not_present", :depending_resourse => "course", :creating_resourse => "grid"), :controller => "courses", :action => "new" %>
 		<% end %>
   </div>
-  
+
+	
+	<div class="field">
+    <%= f.label :coordinator_id, :coordinator %>
+		<% if @coordinators.present? %>
+			<%= collection_select(:grid, :coordinator_id, @coordinators, :id, :name, :prompt => true) %>
+		<% else %>
+			<%= link_to t("not_present", :depending_resourse => "coordinator", :creating_resourse => "grid"), [:new, :coordinator] %>
+		<% end %>
+  </div>
+    
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -23,15 +33,7 @@
       <%- end -%>
     </ul>
 	</div>
-	
-	<div class="field">
-    <%= f.label :coordinator_id, :coordinator %>
-		<% if @coordinators.present? %>
-			<%= collection_select(:grid, :coordinator_id, @coordinators, :id, :name, :prompt => true) %>
-		<% else %>
-			<%= link_to t("not_present", :depending_resourse => "coordinator", :creating_resourse => "grid"), [:new, :coordinator] %>
-		<% end %>
-  </div>
+
 	
 	<hr />
   <div class="field">
