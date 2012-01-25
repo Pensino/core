@@ -3,7 +3,7 @@ class Grid < ActiveRecord::Base
   has_and_belongs_to_many   :matters
   belongs_to                :coordinator, :class_name => "Coordinator", :foreign_key => :coordinator_id
 
-  validates_presence_of :course, :name, :matters
+  validates_presence_of :course, :name, :matters, :coordinator
   validates_uniqueness_of :name
   
   def name_with_course

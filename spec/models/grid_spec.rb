@@ -17,5 +17,11 @@ describe Grid do
       grid.course.name.should == "Ensino Basico"
     end
   end
+  
+  context "Validation Associate" do
+    it "must belongs to Coordinator called Girafalles" do
+      grid.coordinator.name.should == "Girafalles"
+    end
+  end
 
 end

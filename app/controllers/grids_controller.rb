@@ -86,8 +86,9 @@ class GridsController < ApplicationController
 
 protected
   def load_resources
-    @matters = Matter.all
-    @courses = Course.all
+    @matters      = Matter.all
+    @courses      = Course.all
+    @coordinators = Coordinator.all
   end
   
 end

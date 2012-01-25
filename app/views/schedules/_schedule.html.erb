@@ -7,3 +7,8 @@
   <b>Time Gap:</b>
   <%= schedule.time_gap.to_s %>
 </p>
+
+<p>
+  <b>Professor:</b>
+  <%= schedule.professor.name if schedule.professor %>
+</p>

@@ -9,6 +9,7 @@ FactoryGirl.define do
   Factory.define :grid_complete, :parent => :grid do |grid|
     grid.after_build do |g|
       g.matters = [Factory.build(:matter, :grids => [g]), Factory.build(:matter, :grids => [g])]
+      g.coordinator = Factory.build(:coordinator)
     end
   end
 end

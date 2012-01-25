@@ -87,5 +87,6 @@ protected
     @grids = Grid.where(:draft => false)
     @grids.sort!{|x, y| x.name_with_course <=> y.name_with_course} #sorting by course name
     @time_gaps = TimeGap.all.sort!{|x,y| x.day_of_week <=> y.day_of_week}
+    @professors = Professor.all.sort!{|x,y| x.name <=> y.name} #sorting by professor name
   end
 end
