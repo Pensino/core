@@ -10,8 +10,6 @@ Core::Application.routes.draw do
     resources :schedules
   end
 
-  resources :expedients
-
   resources :classrooms
 
   resources :grids

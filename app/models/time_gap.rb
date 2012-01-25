@@ -1,29 +1,24 @@
 class TimeGap < ActiveRecord::Base
-  belongs_to :expedient
+
   has_many :timetables, :through => :schedules
   
   WEEK_DAYS = {:sunday => 0, :monday => 1, :tuesday => 2, :wednesday => 3, :thursday => 4, :friday => 5, :saturday => 6}
-  validates_presence_of :start_time, :end_time, :quantity_lessons, :expedient
+  validates_presence_of :start_time, :end_time, :quantity_lessons
   validate :validate_date_range
   
 private   
-  # check if the dates are within some Expedient
+
   def validate_date_range
 
     unless day_of_week.present? and WEEK_DAYS.include?(day_of_week.to_sym)
       errors.add(:day_of_week, "doesn't exist") 
       return false
     end
-
-    start_time = adjust_date(self.start_time)
-    end_time = adjust_date(self.end_time)
     
-    unless expedient.is_date_range_valid? :start => start_time, :end => end_time
-      errors.add(:base, "out of expedient") 
+    if start_time >= end_time
+      errors.add(:start_time, "start time should be less of end time") 
       return false
-    end
-    
-    true
+    end 
   end
   
   # converts the date to the nearest of the same day of the week
