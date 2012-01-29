@@ -1,3 +1,4 @@
+<hr />
 <p>
   <b>Matter:</b>
   <%= schedule.matter.name %>
@@ -13,4 +14,10 @@
 <p>
   <b>Professor:</b>
   <%= schedule.professor.name if schedule.professor %>
+</p>
+
+<p>
+  <b>Destroy:</b>
+	<%timetable = schedule.timetable%>
+	<%= link_to("Destroy", "/timetables/#{timetable.id}/schedules/#{schedule.id}", :method => :delete, :confirm => "Are you sure?") %>
 </p>

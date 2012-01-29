@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20120125185946) do
 
   create_table "classrooms", :force => true do |t|
-    t.integer  "school_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,8 +83,10 @@ ActiveRecord::Schema.define(:version => 20120125185946) do
   create_table "schedules_time_gaps", :force => true do |t|
     t.integer  "schedule_id"
     t.integer  "time_gap_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
- 
+
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
